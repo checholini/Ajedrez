@@ -6,8 +6,6 @@
 
 package Piezas;
 
-import Piezas.Pieza;
-
 /**
  * Clase para manejar el peon
  * @author SergioRodriguez

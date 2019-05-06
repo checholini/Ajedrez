@@ -10,6 +10,15 @@ package Piezas;
  *
  * @author SergioRodriguez
  */
-public class CaballoPieza {
+public class CaballoPieza extends Pieza{
+
+    public CaballoPieza(int jugador) {
+        super("Caballo", 'c', jugador);
+    }
+
+    @Override
+    public void hacerMovimiento(int x, int y) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
 }
