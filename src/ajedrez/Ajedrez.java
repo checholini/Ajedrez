@@ -71,9 +71,13 @@ public class Ajedrez {
         int x = Integer.parseInt(sc.nextLine());
         int y = Integer.parseInt(sc.nextLine());
         Pieza pieza = tablero.obtenerPieza(x,y);
-        if(pieza != null){
+        if(pieza != null && pieza.getJugador() == jugador){
             pieza.darMovimientos();
             tablero = pieza.hacerMovimiento(x, y, tablero);
+        }
+        else if(pieza != null && pieza.getJugador() != jugador){
+            System.out.println("Esta pieza no le corresponde, vuelva a intentarlo");
+            moverPieza(jugador);
         }
         else{
             System.out.println("No existe una pieza en esa posicion, vuelva a intentarlo");

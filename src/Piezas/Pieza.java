@@ -14,9 +14,9 @@ import ajedrez.Tablero;
  */
 public abstract class Pieza {
     
-    String nombrePieza; 
-    String caracterPieza;
-    int jugador;
+    private String nombrePieza; 
+    private String caracterPieza;
+    private int jugador;
     /**
      * Constructor para la pieza
      * @param nombrePieza
