@@ -16,7 +16,7 @@ import Piezas.Pieza;
  * @author SergioRodriguez
  */
 public class Tablero {
-    static Pieza[][] layout;
+    private static Pieza[][] layout;
     
     /**
      * Constructor del tablero para jugar
@@ -55,7 +55,7 @@ public class Tablero {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 if(layout[i][j] == null){
-                    System.out.print("[   ]");
+                    System.out.print("[    ]");
                 }
                 else{
                     System.out.print("[ "+layout[i][j].getCaracterPieza()+" ]");
@@ -105,6 +105,18 @@ public class Tablero {
                 
                 break;
         }
+    }
+
+    public Pieza obtenerPieza(int x, int y) {
+        return layout[x][y];
+    }
+    
+    public void agregarPieza(int x, int y, Pieza pieza){
+        layout[x][y] = pieza;
+    }
+    
+    public void eliminarPieza(int x, int y){
+        layout[x][y] = null;
     }
     
 }

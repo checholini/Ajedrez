@@ -5,6 +5,7 @@
  */
 package ajedrez;
 
+import Piezas.Pieza;
 import java.util.Scanner;
 
 
@@ -14,6 +15,7 @@ import java.util.Scanner;
  */
 public class Ajedrez {
     static Scanner sc = new Scanner(System.in);
+    static Tablero tablero;
     /**
      * @param args the command line arguments
      */
@@ -22,7 +24,7 @@ public class Ajedrez {
     }
 
     private static void iniciarPartida() {
-        Tablero tablero = new Tablero();
+        tablero = new Tablero();
         int turno = 0;
         while(true){
             tablero.imprimirTablero();
@@ -65,7 +67,18 @@ public class Ajedrez {
     }
 
     private static void moverPieza(int jugador) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("Seleccione una posicion");
+        int x = Integer.parseInt(sc.nextLine());
+        int y = Integer.parseInt(sc.nextLine());
+        Pieza pieza = tablero.obtenerPieza(x,y);
+        if(pieza != null){
+            pieza.darMovimientos();
+            tablero = pieza.hacerMovimiento(x, y, tablero);
+        }
+        else{
+            System.out.println("No existe una pieza en esa posicion, vuelva a intentarlo");
+            moverPieza(jugador);
+        }
     }
     
 }

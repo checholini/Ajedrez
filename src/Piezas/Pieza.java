@@ -6,6 +6,8 @@
 
 package Piezas;
 
+import ajedrez.Tablero;
+
 /**
  * Clase abstracta para modelar el comportamiento de las piezas
  * @author SergioRodriguez
@@ -13,7 +15,7 @@ package Piezas;
 public abstract class Pieza {
     
     String nombrePieza; 
-    char caracterPieza;
+    String caracterPieza;
     int jugador;
     /**
      * Constructor para la pieza
@@ -21,7 +23,7 @@ public abstract class Pieza {
      * @param caracterPieza
      * @param jugador 
      */
-    public Pieza(String nombrePieza, char caracterPieza, int jugador) {
+    public Pieza(String nombrePieza, String caracterPieza, int jugador) {
         this.nombrePieza = nombrePieza;
         this.caracterPieza = caracterPieza;
         this.jugador = jugador;
@@ -31,8 +33,12 @@ public abstract class Pieza {
      * Metodo para validar si el movimiento de una pieza es valido
      * @param x coordenada actual en x
      * @param y coordenada actual en y
+     * @param tablero
+     * @return 
      */
-    public abstract void hacerMovimiento(int x, int y); 
+    public abstract Tablero hacerMovimiento(int x, int y, Tablero tablero); 
+    
+    public abstract void darMovimientos();
 
     /*
      * Getters 
@@ -41,7 +47,7 @@ public abstract class Pieza {
         return nombrePieza;
     }
 
-    public char getCaracterPieza() {
+    public String getCaracterPieza() {
         return caracterPieza;
     }
 
@@ -53,7 +59,7 @@ public abstract class Pieza {
         this.nombrePieza = nombrePieza;
     }
 
-    public void setCaracterPieza(char caracterPieza) {
+    public void setCaracterPieza(String caracterPieza) {
         this.caracterPieza = caracterPieza;
     }
 

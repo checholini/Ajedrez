@@ -6,6 +6,8 @@
 
 package Piezas;
 
+import ajedrez.Tablero;
+
 /**
  * Clase para manejar el peon
  * @author SergioRodriguez
@@ -13,12 +15,37 @@ package Piezas;
 public class PeonPieza extends Pieza{
 
     public PeonPieza(int jugador) {
-        super("Peon", 'p', jugador);
+        super("Peon", "p"+jugador, jugador);
     }
 
     @Override
-    public void hacerMovimiento(int x, int y) {
-        
+    public Tablero hacerMovimiento(int x, int y, Tablero tablero) {
+        if(super.jugador == 1){
+            if( x+1 < 8 ||x+1 > 0){
+                System.out.println("in "+ this);
+                tablero.agregarPieza(x+1, y, this);
+                tablero.eliminarPieza(x, y);
+            }      
+            else{
+                System.out.println("El peon no se puede mover");
+            }
+        }
+        else{
+            if( x-1 < 8 || x-1 > 0){
+                tablero.agregarPieza(x-1, y, this);
+                tablero.eliminarPieza(x, y);
+            }   
+            else{
+                System.out.println("El peon no se puede mover");
+            }
+        }
+        return tablero;
+    }
+
+    @Override
+    public void darMovimientos() {
+        System.out.println("Ha seleccionado el peon");
+        System.out.println();        
     }
     
 }

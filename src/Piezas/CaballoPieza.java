@@ -6,6 +6,8 @@
 
 package Piezas;
 
+import ajedrez.Tablero;
+
 /**
  *
  * @author SergioRodriguez
@@ -13,11 +15,24 @@ package Piezas;
 public class CaballoPieza extends Pieza{
 
     public CaballoPieza(int jugador) {
-        super("Caballo", 'c', jugador);
+        super("Caballo", "c"+jugador, jugador);
     }
 
     @Override
-    public void hacerMovimiento(int x, int y) {
+    public void darMovimientos() {
+        System.out.println("Ha seleccinado un Caballo");
+        System.out.println("Movimientos disponibles: ");
+        System.out.print("1. _  2. _ _  3. _   4. _ _ \n");
+        System.out.print("  |     |         |        |\n");
+        System.out.print("  |               |\n");
+        System.out.println("");
+        System.out.print("5.|   6.|    7.   | 8.     |\n");
+        System.out.print("  |      ¯ ¯      |     ¯ ¯\n");
+        System.out.print("   ¯             ¯    \n");
+    }
+
+    @Override
+    public Tablero hacerMovimiento(int x, int y, Tablero tablero) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
